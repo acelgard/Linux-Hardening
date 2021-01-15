@@ -10,4 +10,4 @@ systemctl disable firewalld
 systemctl start iptables
 systemctl status iptables
 
-
+echo "End of script"
