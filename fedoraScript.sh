@@ -1,7 +1,6 @@
 #1/14/2021
 #script to harden Linux operating systems
 echo "Begining hardening script ..."
-@echo off
 sudo yum install vim aide tmux iptables -y
 sudo yum install iptables-services -y
 aide -init
