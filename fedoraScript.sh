@@ -65,6 +65,9 @@ restrict ::1
 
 # Hosts on local network are less restricted.
 #restrict 192.168.1.0 mask 255.255.255.0 nomodify notrap
+restrict 172.20.240.0 mask 255.255.255.0 nomodify notrap limited
+restrict 172.20.241.0 mask 255.255.255.0 nomodify notrap limited
+restrict 172.20.242.0 mask 255.255.255.0 nomodify notrap limited
 
 # Use public servers from the pool.ntp.org project.
 # Please consider joining the pool (http://www.pool.ntp.org/join.html).
@@ -96,7 +99,11 @@ keys /etc/ntp/keys
 
 # Enable writing of statistics records.
 #statistics clockstats cryptostats loopstats peerstats" > /etc/ntp.conf
- 
+
+#################################################
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#
+# Don't forget to add or adjust IP restrictions #
+#################################################
 systemctl restart ntpd
 systemctl status ntpd >> /var/fedoscriptlog.txt
 #check to see if ip addr changed from 172.20.2**.**
