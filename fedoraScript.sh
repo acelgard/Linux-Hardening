@@ -3,10 +3,10 @@
 echo "Begining hardening script ..."
 sudo yum install vim aide tmux iptables ntpdate -y
 sudo yum install iptables-services -y
-aide -init
+aide --init
 mv /var/lib/aide/aide.db.new.gz /var/lib/aide/aide.db.gz
 
-mkdir /var/fedoscriptlog.txt
+touch /var/fedoscriptlog.txt
 
 #setup firewall
 systemctl stop firewalld
@@ -110,7 +110,7 @@ systemctl status ntpd >> /var/fedoscriptlog.txt
 #if they did adjust /etc/ntp.conf
 
 #status readouts
-ntpq -p >> /var/fedorascriptlog.txt
+ntpq -p >> /var/fedoscriptlog.txt
 ntpq -p
 iptables -L -v
 iptables -L -v >> /var/fedoscriptlog.txt
